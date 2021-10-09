@@ -3,9 +3,9 @@ FROM maven:3.5.3-jdk-8
 #FROM openjdk:8u121-jdk
 
 LABEL maintainer-github="@Renien"
-LABEL version=1.1.0
+LABEL version=1.2.0
 
-ARG RANGER_VERSION=1.1.0
+ARG RANGER_VERSION=1.2.0
 
 ADD https://jdbc.postgresql.org/download/postgresql-42.2.1.jar /opt
 
