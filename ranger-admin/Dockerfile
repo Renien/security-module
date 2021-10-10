@@ -13,14 +13,13 @@ ADD https://downloads.apache.org/ranger/${RANGER_VERSION}/apache-ranger-${RANGER
 
 COPY ranger-entrypoint.sh /opt
 # Note this can be removed once we pick up Ranger 1.1.1/2.0.0
-COPY pom.xml /opt
+# COPY pom.xml /opt
 
 WORKDIR /opt
 
 RUN apt-get -q update && apt-get install -y -q python gcc \
  && tar zxvf apache-ranger-${RANGER_VERSION}.tar.gz \
  && cd apache-ranger-${RANGER_VERSION} \
- && mv /opt/pom.xml knox-agent \
  && mvn package assembly:assembly -DskipTests \
  && cp target/ranger-${RANGER_VERSION}-admin.tar.gz /opt \
  && cd /opt \
